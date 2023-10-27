@@ -1,5 +1,28 @@
 @import '~bootstrap/scss/bootstrap';
-/* 
-@import './partials/header';
-@import './partials/main'; */
+
 @import './partials/footer';
+
+.film {
+
+    .film-front {
+        box-shadow: 0 0 0.5rem black;
+        background: rgb(255, 77, 77);
+        color: white;
+    }
+
+    .film-back {
+        display: none;
+        background: rgb(255, 77, 77);
+        color: white;
+    }
+}
+
+.film:hover {
+    .film-back {
+        display: block;
+    }
+
+    .film-front {
+        display: none;
+    }
+}
