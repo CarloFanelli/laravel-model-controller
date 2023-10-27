@@ -21,7 +21,13 @@
         <div class="row">
             <div class="col">
                 <h1>ciao</h1>
-
+                <ul>
+                    @foreach($movies as $movie)
+                    <li>
+                        {{$movie->title}}
+                    </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
