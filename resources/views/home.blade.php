@@ -1,37 +1,35 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('main-content')
 
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite('resources/js/app.js')
-
-</head>
-
-<body>
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>ciao</h1>
-                <ul>
-                    @foreach($movies as $movie)
-                    <li>
-                        {{$movie->title}}
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>{{$heading}}</h1>
         </div>
     </div>
 
-</body>
+    <div class="row my-4">
+        @foreach($movies as $movie)
+        <div class="col-4 gy-4">
+            <div class="card h-100">
+                <div class="card-header h-25">
+                    <h4>{{$movie->title}}</h4>
+                    <small>{{$movie->original_title}}</small>
+                </div>
+                <div class="card-body">
+                    <img class="img-fluid" src="https://picsum.photos/200/300?random=<?= rand() ?>">
+                    <span>release: {{$movie->date}}</span>
+                </div>
+                <div class="card-footer">
 
-</html>
+                    <p>nation: {{$movie->nationality}}</p>
+                    <p>vote: {{$movie->vote}}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
+    </div>
+</div>
+@endsection
